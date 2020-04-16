@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View } from "@tarojs/components";
+import { getSystemInfoSync } from "@tarojs/taro";
 import { observer, inject } from "mobx-react";
 import { AtModal } from "taro-ui";
 import "./index.scss";
@@ -48,11 +49,15 @@ class Index extends Component {
   };
 
   render() {
-    const {
-    } = this.props.store;
+    const {} = this.props.store;
     return (
       <View className="index">
-        <AtModal isOpened>modal弹出后后面依旧可以滚动</AtModal>
+        <View
+          style={{ height: getSystemInfoSync().screenHeight }}
+          className="fixed-mask"
+        >
+          <View className="content">modal弹出后后面依旧可以滚动</View>
+        </View>
         {new Array(100).fill(1).map((_, i) => (
           <View key={`g${i}`}>还是可以滚动{i}</View>
         ))}
