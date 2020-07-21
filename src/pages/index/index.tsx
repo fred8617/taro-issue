@@ -53,6 +53,11 @@ class Index extends Component {
     return (
       <View className="index">
         <View
+          className="view"
+        >
+          333
+        </View>
+        <View
           style={{ height: getSystemInfoSync().screenHeight }}
           className="fixed-mask"
         >
